@@ -44,12 +44,12 @@ gulp.task('default',['browser-sync'],function(){
 gulp.task('forCorrect', function () {
   return gulp
     .src(['**/*.html'])
-    .pipe(rplc('http://localhost:3000/', '//kumoyama.github.io/'))
+    .pipe(rplc('http://localhost:3000/', '//kumoyama.github.io/test/'))
     .pipe(gulp.dest('./'));
 });
 gulp.task('forTest', function () {
   return gulp
     .src(['**/*.html'])
-    .pipe(rplc('//kumoyama.github.io/', 'http://localhost:3000/'))
+    .pipe(rplc('//kumoyama.github.io/test/', 'http://localhost:3000/'))
     .pipe(gulp.dest('./'));
 });
