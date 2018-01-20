@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+// ref
+@import "../../common/scss/_mq.scss";
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 950px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.item {
+  $root: &;
+  $gap_y: 16px;
+  $gap_y_adj: 8px;
+  $label_h: (14px * 1.4);
+  position: relative;
+  width: (950px - (20px * 3)) / 4;
+  margin-bottom: 20px;
+  padding-top: $gap_y;
+  border: 1px solid #ddd;
+  text-align: center;
+  &__label--first {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-top: .2em;
+    padding-right: .4em;
+    padding-bottom: .2em;
+    padding-left: .4em;
+    font-size: 14px;
+    line-height: 1;
+    background-color: #000;
+    color: #fff;
+  }
+  &__label--second {
+    display: inline-block;
+    padding-top: .2em;
+    padding-right: .6em;
+    padding-bottom: .2em;
+    padding-left: .6em;
+    border: 1px solid #000;
+    font-size: 14px;
+    line-height: 1;
+  }
+  &__name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: bold;
+  }
+  &.pt_red {
+    padding-top: $gap_y + ($label_h - $gap_y_adj);
+    background-color: rgba(red,.4);
+  }
+  &.pt_blu {
+    padding-top: $gap_y + ($label_h + $gap_y_adj);
+    background-color: rgba(blue,.4);
+    #{$root}__label--second {
+      position: absolute;
+      left: 50%;
+      top: $gap_y;
+      transform: translateX(-50%);
+    }
+  }
+  &.pt_yel {
+    padding-top: $gap_y + $label_h * 2;
+    background-color: rgba(yellow,.4);
+    #{$root}__label--second {
+      position: absolute;
+      left: 50%;
+      top: $gap_y + ($label_h - $gap_y_adj);
+      transform: translateX(-50%);
+    }
+  }
+}
